@@ -9,9 +9,9 @@ on:
   push:
     branches:
       - master
-      - feat
+      - feat/**
     paths-ignore:
-      - 'github/workflows/**'
+      - 'github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
