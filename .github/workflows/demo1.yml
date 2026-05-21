@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - master
+      - feat
     paths-ignore:
       - 'github/workflows/**'
 jobs:
@@ -16,7 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output event data
-        run: echo "${{ toJSON(github.event) }}"
+        env: 
+          GITHUB_EVENT: ${{ toJSON(github.event) }}
+        run: echo "$GITHUB_EVENT"
       - name: Get code
         uses: actions/checkout@v3
       - name: Install dependencies
